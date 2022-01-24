@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "598344880646",
+    "project_id": "petwalker-e4c30",
+    "storage_bucket": "petwalker-e4c30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598344880646:android:8eb786ec00569bd5ebe987",
+        "android_client_info": {
+          "package_name": "hu.nagyi.petwalker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598344880646-tp1ai8go72afn1lscljc1h2el7s4ado5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCTFtY_5G9aH7sZgnlWNVbN9crc9iZ9VM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598344880646-tp1ai8go72afn1lscljc1h2el7s4ado5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

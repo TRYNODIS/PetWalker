@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">PetWalker</string>
+    <string name="logo">Logo</string>
+    <string name="userName">User name</string>
+    <string name="password">Password</string>
+    <string name="rememberLogInData">Remember log in data</string>
+    <string name="logIn">Log in</string>
+    <string name="register">Register</string>
+    <string name="ifYouDoNotHaveAccount">If you do not have account you can register with the button below</string>
+    <string name="enterFirstName">Enter first name</string>
+    <string name="enterLastName">Enter last name</string>
+    <string name="enterAddress">Enter address</string>
+    <string name="enterCity">Enter city</string>
+    <string name="enterPostCode">Enter post code</string>
+    <string name="enterEmail">Enter email</string>
+    <string name="enterPhone">Enter phone number</string>
+    <string name="version">Version%1s%1s</string>
+    <string name="enterPassword">Enter password</string>
+    <string name="email">E mail</string>
+    <string name="save">Save</string>
+    <string name="walker">Walker</string>
+    <string name="farmer">Farmer</string>
+    <string name="userSaved">User saved</string>
+    <string name="error">Error %1s%1s</string>
+    <string name="onSuccess">On success%1s%1s</string>
+    <string name="enterPrice">Enter price</string>
+    <string name="registrationSuccessful">Registration successful</string>
+    <string name="thisFieldCanNotBeEmpty">This field can not be empty</string>
+    <string name="modify">Modify</string>
+    <string name="details">Details</string>
+    <string name="delete">Delete</string>
+
+    <string-array name="tab_names">
+        <item>Walkers</item>
+        <item>Farmers</item>
+    </string-array>
+
+</resources>

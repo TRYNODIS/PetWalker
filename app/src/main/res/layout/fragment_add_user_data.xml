@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstNameTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="@string/enterFirstName"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastNameTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterLastName"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addressTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterAddress"
+            android:inputType="text" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cityTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterCity"
+            android:inputType="text" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/postCodeTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterPostCode"
+            android:inputType="number" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterPhone"
+            android:inputType="phone" />
+
+        <RadioGroup
+            android:id="@+id/typeRG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/walkerRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/walker" />
+
+            <RadioButton
+                android:id="@+id/farmerRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/farmer" />
+
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/priceTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterPrice"
+            android:inputType="number"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
