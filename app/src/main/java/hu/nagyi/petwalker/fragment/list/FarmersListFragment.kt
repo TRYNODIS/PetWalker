@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.firestore.*
 import hu.nagyi.petwalker.MainFragment
+import hu.nagyi.petwalker.R
 import hu.nagyi.petwalker.adapter.FarmersAdapter
 import hu.nagyi.petwalker.data.User
 import hu.nagyi.petwalker.databinding.FragmentFarmersListBinding
-import java.lang.Exception
+import hu.nagyi.petwalker.fragment.AddUserDataFragment
+import hu.nagyi.petwalker.fragment.ViewPagerFragment
 
 class FarmersListFragment : MainFragment() {
 
@@ -53,6 +55,16 @@ class FarmersListFragment : MainFragment() {
 
         this.initFirebaseQuery()
 
+        this.binding.userFAB.setOnClickListener {
+            this.requireActivity().supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.mainFrameLayout,
+                    AddUserDataFragment.newInstance(),
+                    AddUserDataFragment.TAG
+                )
+                .addToBackStack(null)
+                .commit();
+        }
     }
 
     private fun initAdapterAndSetItToRV() {

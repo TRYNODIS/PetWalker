@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.firestore.*
 import hu.nagyi.petwalker.MainFragment
+import hu.nagyi.petwalker.R
 import hu.nagyi.petwalker.adapter.WalkersAdapter
 import hu.nagyi.petwalker.data.User
 import hu.nagyi.petwalker.databinding.FragmentWalkersListBinding
+import hu.nagyi.petwalker.fragment.AddUserDataFragment
+import hu.nagyi.petwalker.fragment.ViewPagerFragment
 import java.lang.Exception
 
 class WalkersListFragment : MainFragment() {
@@ -52,6 +55,17 @@ class WalkersListFragment : MainFragment() {
         this.initAdapterAndSetItToRV()
 
         this.initFirebaseQuery()
+
+        this.binding.userFAB.setOnClickListener {
+            this.requireActivity().supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.mainFrameLayout,
+                    AddUserDataFragment.newInstance(),
+                    AddUserDataFragment.TAG
+                )
+                .addToBackStack(null)
+                .commit();
+        }
 
     }
 
