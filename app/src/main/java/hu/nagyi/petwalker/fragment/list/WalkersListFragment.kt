@@ -56,7 +56,8 @@ class WalkersListFragment : MainFragment() {
     }
 
     private fun initAdapterAndSetItToRV() {
-        this.adapter = WalkersAdapter(this.requireActivity(), this.currentUser!!.uid, this.collection)
+        this.adapter =
+            WalkersAdapter(this.requireActivity(), this.currentUser!!.uid, this.collection)
         this.binding.walkersRV.adapter = this.adapter
     }
 

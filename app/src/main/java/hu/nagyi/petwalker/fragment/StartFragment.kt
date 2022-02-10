@@ -42,9 +42,8 @@ class StartFragment : MainFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         this.binding.logInBtn.setOnClickListener(View.OnClickListener {
-            if (this.binding.emailTIET.text!!.isNotEmpty() && this.binding.pwTIET.text!!.isNotEmpty()) {
-                this.logIn()
-            }
+            this.logIn()
+
         })
 
         this.binding.registerBtn.setOnClickListener(View.OnClickListener {
@@ -52,7 +51,7 @@ class StartFragment : MainFragment() {
         })
 
         this.binding.versionTV.text = String.format(
-            getString(R.string.version), ": ", BuildConfig.VERSION_NAME
+            this.getString(R.string.version), ": ", BuildConfig.VERSION_NAME
         )
     }
 
@@ -81,7 +80,7 @@ class StartFragment : MainFragment() {
         }.addOnFailureListener {
             Toast.makeText(
                 this.requireActivity(),
-                String.format(this.getString(R.string.error), ": ",it.message),
+                String.format(this.getString(R.string.error), ": ", it.message),
                 Toast.LENGTH_LONG
             ).show()
         }

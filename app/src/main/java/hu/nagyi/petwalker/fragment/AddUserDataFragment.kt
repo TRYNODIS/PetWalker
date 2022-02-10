@@ -59,14 +59,17 @@ class AddUserDataFragment : MainFragment() {
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     this.users.addAll(it.toObjects(User::class.java))
-                    Log.d(TAG, String.format(getString(R.string.onSuccess), ": ", { this.users }))
+                    Log.d(
+                        TAG,
+                        String.format(this.getString(R.string.onSuccess), ": ", { this.users })
+                    )
                     this.setControlsValue()
                 }
             }
             .addOnFailureListener {
                 Toast.makeText(
                     this.requireActivity(),
-                    String.format(getString(R.string.error), { it.message }),
+                    String.format(this.getString(R.string.error), { it.message }),
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -135,7 +138,7 @@ class AddUserDataFragment : MainFragment() {
             .addOnSuccessListener {
                 Toast.makeText(
                     this.requireActivity(),
-                    getString(R.string.userSaved), Toast.LENGTH_LONG
+                    this.getString(R.string.userSaved), Toast.LENGTH_LONG
                 ).show()
 
                 this.requireActivity().supportFragmentManager.popBackStack()
@@ -143,7 +146,7 @@ class AddUserDataFragment : MainFragment() {
             .addOnFailureListener {
                 Toast.makeText(
                     this.requireActivity(),
-                    String.format(getString(R.string.error), { it.message }),
+                    String.format(this.getString(R.string.error), { it.message }),
                     Toast.LENGTH_LONG
                 ).show()
             }

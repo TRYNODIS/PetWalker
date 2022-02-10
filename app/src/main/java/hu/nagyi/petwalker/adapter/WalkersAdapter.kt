@@ -1,6 +1,7 @@
 package hu.nagyi.petwalker.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +12,11 @@ import hu.nagyi.petwalker.R
 import hu.nagyi.petwalker.data.User
 import hu.nagyi.petwalker.databinding.RowWalkersListBinding
 import hu.nagyi.petwalker.fragment.AddUserDataFragment
+import hu.nagyi.petwalker.map.MapsActivity
 
 class WalkersAdapter(
     var context: Context,
-    var currentUID: String,
+    private var currentUID: String,
     var collection: CollectionReference
 ) :
     RecyclerView.Adapter<WalkersAdapter.ViewHolder>() {
@@ -45,52 +47,49 @@ class WalkersAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = this.usersList[holder.adapterPosition]
 
-        if (user.type == "Walker") {
-            holder.typeTV.text = user.type
-            holder.firstNameTV.text = user.firstName
-            holder.lastNameTV.text = user.lastName
-            holder.priceTV.text = user.price
-            holder.emailTV.text = user.email
-            holder.phoneNoTV.text = user.phoneNo
+        holder.typeTV.text = user.type
+        holder.firstNameTV.text = user.firstName
+        holder.lastNameTV.text = user.lastName
+        holder.priceTV.text = user.price
+        holder.emailTV.text = user.email
+        holder.phoneNoTV.text = user.phoneNo
 
-
-            if (this.currentUID == user.uid) {
-                holder.modifyBtn.visibility = View.VISIBLE
-                holder.detailsBtn.visibility = View.GONE
-                holder.deleteBtn.visibility = View.VISIBLE
-            } else {
-                holder.modifyBtn.visibility = View.GONE
-                holder.detailsBtn.visibility = View.VISIBLE
-                holder.deleteBtn.visibility = View.GONE
-            }
-
-            holder.modifyBtn.setOnClickListener {
-                ((context) as AppCompatActivity).supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.mainFrameLayout,
-                        AddUserDataFragment.newInstance(),
-                        AddUserDataFragment.TAG
-                    )
-                    .addToBackStack(null)
-                    .commit();
-            }
-
-            holder.detailsBtn.setOnClickListener {
-                println("details")
-            }
-
-            holder.deleteBtn.setOnClickListener {
-                this.removeUser(holder.adapterPosition)
-            }
+        if (this.currentUID == user.uid) {
+            holder.modifyBtn.visibility = View.VISIBLE
+            holder.detailsBtn.visibility = View.GONE
+            holder.deleteBtn.visibility = View.VISIBLE
         } else {
-            holder.itemView.visibility = View.GONE
+            holder.modifyBtn.visibility = View.GONE
+            holder.detailsBtn.visibility = View.VISIBLE
+            holder.deleteBtn.visibility = View.GONE
+        }
+
+        holder.modifyBtn.setOnClickListener {
+            ((this.context) as AppCompatActivity).supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.mainFrameLayout,
+                    AddUserDataFragment.newInstance(),
+                    AddUserDataFragment.TAG
+                )
+                .addToBackStack(null)
+                .commit();
+        }
+
+        holder.detailsBtn.setOnClickListener {
+            this.context.startActivity(Intent(this.context, MapsActivity::class.java))
+        }
+
+        holder.deleteBtn.setOnClickListener {
+            this.removeUser(holder.adapterPosition)
         }
     }
 
     fun addUser(user: User, key: String) {
-        this.usersList.add(user)
-        this.userKeys.add(key)
-        this.notifyItemInserted(this.usersList.lastIndex)
+        if (user.type == "Walker") {
+            this.usersList.add(user)
+            this.userKeys.add(key)
+            this.notifyItemInserted(this.usersList.lastIndex)
+        }
     }
 
     private fun removeUser(index: Int) {

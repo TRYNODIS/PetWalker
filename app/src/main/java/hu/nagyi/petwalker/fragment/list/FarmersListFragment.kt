@@ -56,7 +56,8 @@ class FarmersListFragment : MainFragment() {
     }
 
     private fun initAdapterAndSetItToRV() {
-        this.adapter = FarmersAdapter(this.requireActivity(), this.currentUser!!.uid, this.collection)
+        this.adapter =
+            FarmersAdapter(this.requireActivity(), this.currentUser!!.uid, this.collection)
         this.binding.farmersRV.adapter = this.adapter
     }
 
